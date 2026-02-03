@@ -1,0 +1,29 @@
+clc
+clear
+close
+
+x=input('Enter the sequence :')
+h=input('Enter the sequence :')
+
+y=conv(x,h);
+
+subplot(3,1,1);
+plot2d3(x);
+xlabel('Samples');
+ylabel('Amplitude');
+title('Linear Convolution of Signals');
+
+subplot(3,1,2);
+plot2d3(h);
+xlabel('Samples');
+ylabel('Amplitude');
+
+subplot(3,1,3);
+plot2d3(y);
+xgrid(5,1,7);
+xlabel('Samples');
+ylabel('Amplitude');
+
+disp('x=',x);
+disp('h=',h);
+disp('Y=',y);
