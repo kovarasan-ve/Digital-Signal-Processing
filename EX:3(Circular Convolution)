@@ -1,0 +1,42 @@
+clc
+clear
+close
+x=[1 2 3 4 5];
+
+h=[1 1 1 1];
+l=length(x);
+m=length(h)
+N=max(l,m);
+if l<N
+x=[x,zeros(1,N-l)]
+end
+if m<N
+h=[h,zeros(1,N-m)]
+end
+
+y=zeros(1,N);
+for i=1:N
+y(i)=0
+for j=1:N
+k=i-j+1
+if ( k<=0)
+k=i-j+1+N
+end
+y(i)=y(i)+x(j)*h(k);
+end
+end
+subplot(3,1,1);
+25
+plot2d3(x);
+title('Circular Convolution of signals');
+xlabel('n');
+subplot(3,1,2);
+plot2d3(h);
+xlabel('n');
+ylabel('h(n)')
+subplot(3,1,3);
+plot2d3(y);
+xgrid(2)
+xlabel('n');
+ylabel('y(n)')
+disp('output',y)
