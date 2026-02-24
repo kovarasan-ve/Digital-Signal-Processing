@@ -1,0 +1,40 @@
+clc
+clear
+x=input('Enter input sequence : ')
+N=length(x);
+for k=1:N
+    y(k)=0
+    for n=1:N
+        y(k)=y(k)+x(n)*exp(-%i*2*%pi*(k-1)*(n-1)/N)
+end
+end
+mag=abs(y)
+x1=atan(imag(y),real(y))
+phase=x1*(180/%pi)
+disp('Resultant DFT Sequence is ')
+disp(y)
+disp('Manitude response is ')
+disp(mag)
+disp('Phase response is ')
+disp(phase)
+for n=1:N
+    y(n)=0
+    for k=1:N
+        y(n)=y(n)+(1/N)*(y(k)*exp(%i*2*%pi*(k-1)*(n-1)/N))
+        c=real(x)
+        end
+end
+disp('Resultant IDFT Sequence is ')
+disp(c)
+subplot (221)
+plot2d3 (x)
+title ( 'The input sequence is' )
+subplot (222)
+plot2d3 (mag)
+title ( 'The resultant magnitude is' )
+subplot (223)
+plot2d3 (phase)
+title ( 'The resultant phase is' )
+subplot (224)
+plot2d3 (c)
+title ( 'IDFT sequence is' )
