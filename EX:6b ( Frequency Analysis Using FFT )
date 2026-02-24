@@ -1,0 +1,17 @@
+clc
+clear all
+x= input ( 'Enter the input sequence : ' )
+N=length(x)
+y= fft (x)
+mag = abs (y)
+x1= atan ( imag (y),real (y))
+phase =x1 *(180/ %pi )
+disp ( 'The resultant FFT sequence is ' )
+disp (y)
+disp ( 'The magnitude response is : ' )
+disp (mag)
+disp ( 'The phase response is : ' )
+disp ( phase )
+z= ifft (y)
+disp ( 'The resultant IFFT sequence is : ' )
+disp(y)
