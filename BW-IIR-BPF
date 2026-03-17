@@ -1,0 +1,20 @@
+clc
+clear all
+fs=2000
+fp=1000
+fsamp=9000
+ap=2
+as=90
+wp=2*fp/fsamp
+ws=2*fs/fsamp
+N=(log(sqrt(((10^(0.1*as))-1)/((10^(0.1*ap))-1)))/log(ws/wp))
+n=ceil(N)
+e=sqrt((10^(0.1*ap))-1)
+l=sqrt((10^(0.1*as))-1)
+omc=0.5*((wp/e^(1/n))+(ws/l^(1/n)))
+hz=iir(n,"bp",'butt',[wp ws],[0 0])
+[mag phase]=frmag(hz,256)
+plot(phase,mag)
+title("Butterworth IIR Band Pass Filter")
+xlabel("Frequency")
+ylabel("Magnitude")
